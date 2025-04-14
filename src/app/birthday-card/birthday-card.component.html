@@ -1,0 +1,72 @@
+<div class="card-container">
+  <div class="card" [class.open]="isOpen" (click)="toggleCard()">
+    <div class="front">
+      <div>
+        <img src="toran.png" style="width: 330px;">
+      </div>
+      <div>
+        <img src="tiramisu2.png" style="width: 180px;" alt="">
+      </div>
+      <div style="text-align: center;" class="birthday-text">
+        Happy Sweet Birthday My Cute Husband! <img src="cupcake.avif" style="width: 40px;height: 40px;" alt="">
+      </div>
+      <!-- <p>Click to open</p> -->
+    </div>
+    <div class="inside" id="fairyLights" style="
+    position: relative;
+    overflow: hidden;
+  ">
+      <div>
+        <img src="toran.png" style="width: 300px;">
+      </div>
+    
+      <!-- Optional Wire Path -->
+      <svg style="position: absolute; width: 100%; height: 100%; pointer-events: none;">
+        <path d="M0,200 C150,50 450,350 600,200" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/>
+        <path d="M0,300 C200,100 400,400 600,300" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/>
+      </svg>    
+
+      <!-- <div> -->
+        <div class="images" style="width: 180px;background-color: azure;padding-top:10px;display: inline-block;">
+          <div>
+            <img src="photo2.jpeg" style="height: 120px;width: 160px;">
+          </div>
+          <div style="font-size: 16px;vertical-align: top;">
+            <div style="display: inline-block;">P</div>
+            <div style="display: inline-block;padding-left: 4px;padding-right: 4px;">
+              <img src="heart2.png" style="width: 15px;height: 15px;" alt="">
+            </div>
+            <div style="display: inline-block;">Q</div>
+          </div>
+        </div>
+        <!-- <div style="display: inline-block;">
+          Happy Birthday to you!<br>
+        </div> -->
+      <!-- </div> -->
+      
+      <h3>{{ recipient }}</h3>
+      <p>{{ message }}</p>
+      <!-- <p class="from">- {{ sender }}</p> -->
+      <div class="images" style="height: 120px;width: 170px;background-color: azure;padding-top:10px;margin-left:5px;display: inline-block;">
+        <div>
+          <img src="photo.jpeg" style="height: 100px;width: 150px;">
+        </div>
+        <div>
+          <img src="heart2.png" style="width: 15px;height: 15px;" alt="">
+        </div>
+      </div>
+      <!-- <div class="images">
+          <img src="balloon.svg" alt="Balloons" />
+          <img src="cake.svg" alt="Cake" class="cake" />
+        </div> -->
+      <!-- <audio id="birthdaySong" autoplay>
+          <source src="SoundHelix-Song-1.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio> -->
+    </div>
+  </div>
+</div>
+<!-- <audio id="birthdaySong" autoplay>
+    <source src="Carefree(chosic.com).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio> -->

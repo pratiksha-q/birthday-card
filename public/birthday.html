@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Card</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 420px;
+      text-align: center;
+      animation: float 4s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    .card h1 {
+      font-size: 2rem;
+      color: #e85a4f;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .signature {
+      margin-top: 20px;
+      font-style: italic;
+      color: #6b705c;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+      }
+      50% {
+        transform: translate(-50%, -50%) translateY(-10px);
+      }
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #ff5f6d, #ffc371);
+      border-radius: 50% 50% 45% 45%;
+      animation: rise 10s linear infinite;
+      opacity: 0.8;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 20px;
+      background: #444;
+    }
+
+    @keyframes rise {
+      0% {
+        bottom: -100px;
+        opacity: 0;
+      }
+      10% { opacity: 1; }
+      100% {
+        bottom: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio -->
+  <audio id="birthdaySong" controls autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- <button onclick="document.getElementById('birthdaySong').play()">Play Sound</button> -->
+  
+
+  <div class="card">
+    <h1>🎉 Happy Birthday, <span style="color:#ff6f61;">Dear [Name]</span>! 🎂</h1>
+    <p>
+      Wishing you a day filled with love, laughter, and cake!<br>
+      May your year ahead sparkle with joy, adventure, and wonderful surprises.<br>
+      Keep shining, keep smiling — today is all about <strong>YOU</strong>! 🎈
+    </p>
+    <div class="signature">
+      💖 With lots of love,<br>
+      <em>Your Friend</em>
+    </div>
+  </div>
+
+  <!-- Balloons -->
+  <script>
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      balloon.style.left = Math.random() * 100 + 'vw';
+      balloon.style.background = `radial-gradient(circle at 30% 30%, hsl(${Math.random() * 360}, 90%, 70%), #fff)`;
+      balloon.style.animationDuration = 8 + Math.random() * 4 + 's';
+      document.body.appendChild(balloon);
+      setTimeout(() => balloon.remove(), 12000);
+    }
+
+    setInterval(createBalloon, 600);
+  </script>
+
+  <!-- Confetti on Load -->
+  <script>
+    window.addEventListener('load', () => {
+      confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+      });
+
+      setInterval(() => {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }, 3000);
+    });
+  </script>
+
+  <script>
+    // Play birthday song
+    setTimeout(() => {
+      if (document.getElementById('birthdaySong'))
+        document.getElementById('birthdaySong').play();
+    }, 1000);
+  </script>
+
+</body>
+</html>

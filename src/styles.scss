@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+// /* You can add global styles to this file, and also import other style files */
+// @keyframes float {
+//     0%, 100% {
+//       transform: translate(-50%, -50%) translateY(0);
+//     }
+//     50% {
+//       transform: translate(-50%, -50%) translateY(-10px);
+//     }
+//   }
+
+// .balloon {
+//     position: absolute;
+//     width: 60px;
+//     height: 80px;
+//     //background: radial-gradient(circle at 30% 30%, #ff5f6d, #ffc371);
+//     //border-radius: 50% 50% 45% 45%;
+//     animation: rise 10s linear infinite;
+//     opacity: 0.8;
+//   }
+
+//   .balloon::after {
+//     content: '';
+//     position: absolute;
+//     bottom: -20px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     width: 2px;
+//     height: 20px;
+//     background: #444;
+//   }
+//   @keyframes rise {
+//     0% {
+//       bottom: -100px;
+//       opacity: 0;
+//     }
+//     10% { opacity: 1; }
+//     100% {
+//       bottom: 110%;
+//       opacity: 0;
+//     }
+//   }
+
+.balloon {
+  position: absolute;
+  width: 30px; //30px
+  height: 30px; //40px
+  //background: radial-gradient(circle at 30% 30%, #ff5f6d, #ffc371);
+  //border-radius: 50% 50% 45% 45%;
+  top: -100px;
+  animation: fall 10s linear infinite;
+  opacity: 0.8;
+  z-index: 1;
+  border-radius: 50%;
+
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: #444;
+}
+
+@keyframes fall {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    top: 110vh;
+    opacity: 0;
+  }
+}
+
