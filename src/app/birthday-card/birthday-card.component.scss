@@ -39,13 +39,15 @@
       align-items: center;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Ctext x='20' y='15' font-size='6'%3E❤️%3C/text%3E%3C/svg%3E");
       background-repeat: repeat;
+      padding: 10px;
+      box-shadow: 20px 0px red;
     }
   
     .inside {
       transform: rotateY(180deg);
-      background-color: #faebeb;
+      //background-color: #faebeb;
       text-align: center;
-      background-color: #e1e9f8;
+      background-color: #e1f6f8;
       .images {
         //margin-top: 20px;
         //display: flex;
@@ -140,4 +142,124 @@ svg path {
   stroke-width: 2;
   fill: none;
 }
+
+.heart {
+  // font-size: 100px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.star-line {
+  font-size: 2rem;
+  color: gold;
+  letter-spacing: 10px;
+}
+
+.star-line span {
+  display: inline-block;
+  animation: sparkle 1.5s infinite ease-in-out;
+}
+
+/* Make each star sparkle at slightly different times */
+.star-line span:nth-child(1) { animation-delay: 0s; }
+.star-line span:nth-child(2) { animation-delay: 0.2s; }
+.star-line span:nth-child(3) { animation-delay: 0.4s; }
+.star-line span:nth-child(4) { animation-delay: 0.6s; }
+.star-line span:nth-child(5) { animation-delay: 0.8s; }
+.star-line span:nth-child(6) { animation-delay: 1s; }
+.star-line span:nth-child(7) { animation-delay: 1.2s; }
+.star-line span:nth-child(8) { animation-delay: 1.4s; }
+.star-line span:nth-child(9) { animation-delay: 1.6s; }
+.star-line span:nth-child(10){ animation-delay: 1.8s; }
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    color: gold;
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.4);
+    color: white;
+  }
+}
+
+.highlight-gradient {
+  // background: linear-gradient(to right, #ff6ec4, #7873f5);
+  // -webkit-background-clip: text;
+  // color: transparent;
+  // font-weight: bold;
+  color: #fff;
+  background-color: #ff69b4;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px #ff69b4;
+  font-weight: bold;
+}
+
+.balloon1 {
+  // width: 90px;
+  // height: 200px;
+  // background: #ff8da4;
+  // border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  // position: relative;
+  // margin: 40px auto;
+  // box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  // animation: float 3s ease-in-out infinite;
+  position: relative;
+  width: 90px; //30px
+  height: 150px; //40px
+  background: radial-gradient(circle at 30% 30%, #f60419, #fff);
+  border-radius: 50% 50% 50% 50%;
+  //top: -100px;
+  animation: float 3s ease-in-out infinite;
+  //opacity: 0.8;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.balloon1::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 40px;
+  background: #aaa;
+}
+
+.balloon1-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
 

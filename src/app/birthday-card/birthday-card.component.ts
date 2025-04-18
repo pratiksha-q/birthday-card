@@ -13,20 +13,42 @@ export class BirthdayCardComponent {
   sender = 'Your Wife';
 
   constructor() {
-    setTimeout(() => {
-      this.toggleCard();
-    }, 4000);
+    // setTimeout(() => {
+    // document.getElementById('redBalloon');
+    // this.toggleCard();
+    // }, 4000);
   }
 
   toggleCard() {
     this.isOpen = !this.isOpen;
+    const audio = document.getElementById('birthdaySong') as HTMLAudioElement;
+
     if (this.isOpen) {
+      const container = document.getElementById('sparkle-container');
+      const numStars = 100;
+      if (container) {
+        for (let i = 0; i < numStars; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+          star.style.top = Math.random() * 100 + '%';
+          star.style.left = Math.random() * 100 + '%';
+          star.style.animationDelay = (Math.random() * 2) + 's';
+          container.appendChild(star);
+        }
+      }
+
       this.launchConfetti();
       this.launchFairyLights();
+      //const lightsContainer = document.getElementById('lightsContainer');
+
+      audio.currentTime = 0; // Reset to the beginning
+      audio.muted = false; // Unmute the audio
+      audio.play();
     }
-    const audio = document.getElementById('birthdaySong') as HTMLAudioElement;
-    audio.currentTime = 0; // Reset to the beginning
-    audio.play();
+    else {
+      audio.pause();
+    }
+    //const audio = document.getElementById('birthdaySong') as HTMLAudioElement;
   } 
 
   launchConfetti() {
@@ -56,7 +78,7 @@ export class BirthdayCardComponent {
   launchFairyLights(){
     const container = document.getElementById('fairyLights');
     const lightCount = 30;
-    
+
     if(!container) return;
 
     for (let i = 0; i < lightCount; i++) {
@@ -91,4 +113,5 @@ export class BirthdayCardComponent {
     `;
     document.head.appendChild(style);
   }
+
 }

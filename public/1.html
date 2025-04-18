@@ -1,75 +1,36 @@
-<div id="starLightsWrapper" style="position: relative; width: 100%; height: 100vh; background: #111; font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; overflow: hidden;">
+<style>
+  .card-container {
+    position: relative;
+    height: 500px; /* adjust as needed */
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
 
-  <div id="lightsContainer" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; position: absolute;"></div>
+  .card-content {
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+  }
 
-  <div style="display: flex; gap: 10px;">
-    <button onclick="turnOn()" style="padding: 10px 20px; border: none; background: #f0c420; color: #111; font-weight: bold; border-radius: 8px; cursor: pointer;">Turn On</button>
-    <button onclick="turnOff()" style="padding: 10px 20px; border: none; background: #f0c420; color: #111; font-weight: bold; border-radius: 8px; cursor: pointer;">Turn Off</button>
+  .bottom-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+    pointer-events: none;
+  }
+</style>
+
+<div class="card-container">
+  <div class="card-content">
+    <!-- Your content here, like the birthday card message -->
+    <p>Your sweet birthday content goes here...</p>
+    <p>More lines of lovely wishes...</p>
+    <p>Even more...</p>
+    <!-- Add enough content to scroll -->
   </div>
-
-  <style>
-    .star {
-      width: 30px;
-      height: 30px;
-      background: gold;
-      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 
-                         68% 57%, 79% 91%, 50% 70%, 
-                         21% 91%, 32% 57%, 2% 35%, 
-                         39% 35%);
-      opacity: 0.2;
-      transition: opacity 0.3s ease-in-out;
-      animation: twinkle 2s infinite alternate;
-      position: absolute;
-    }
-
-    .star.on {
-      opacity: 1;
-    }
-
-    @keyframes twinkle {
-      0% { opacity: 0.4; }
-      100% { opacity: 1; }
-    }
-
-    #starLightsWrapper button:hover {
-      background: #ffd700;
-    }
-  </style>
-
-  <script>
-    const lightsContainer = document.getElementById('lightsContainer');
-
-    // Create 30 stars along a curved path
-    const numberOfStars = 30;
-    const curveRadius = 200;
-    const curveCenterX = window.innerWidth / 2;  // Horizontal center of the screen
-    const curveCenterY = window.innerHeight / 2; // Vertical center of the screen
-
-    for (let i = 0; i < numberOfStars; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-
-      const angle = (i / numberOfStars) * Math.PI; // Even distribution along the curve
-      const x = curveCenterX + curveRadius * Math.cos(angle) - 15;  // 15 is half of star's size to center it
-      const y = curveCenterY + curveRadius * Math.sin(angle) - 15;  // Same adjustment for vertical centering
-
-      star.style.left = `${x}px`;
-      star.style.top = `${y}px`;
-
-      lightsContainer.appendChild(star);
-    }
-
-    function turnOn() {
-      document.querySelectorAll('.star').forEach(star => {
-        star.classList.add('on');
-      });
-    }
-
-    function turnOff() {
-      document.querySelectorAll('.star').forEach(star => {
-        star.classList.remove('on');
-      });
-    }
-  </script>
-
+  <div class="bottom-fade"></div>
 </div>

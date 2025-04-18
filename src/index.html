@@ -5,12 +5,13 @@
   <title>Card</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="tiramisu2.png">
 </head>
 <body style="background-image: url('cherry-blossom4.jpg');background-repeat: no-repeat;background-size: cover;">
   <app-root></app-root>
   <!-- Balloons -->
   <script>
+    var cherryFlower3 = false;
     function createBalloon() {
       // const balloon = document.createElement('div');
       // balloon.classList.add('balloon');
@@ -26,13 +27,20 @@
       balloon.style.left = Math.random() * 100 + 'vw';
       //balloon.style.background = `radial-gradient(circle at 30% 30%, hsl(${Math.random() * 360}, 90%, 70%), #fff)`;
       //balloon.style.animationDuration = 8 + Math.random() * 4 + 's';
-      balloon.src = 'cherry-flower2.PNG';
+      if (!cherryFlower3) {
+        cherryFlower3 = true;
+        balloon.src = 'cherry-flower3.png';
+      }
+      else {
+        cherryFlower3 = false;
+        balloon.src = 'cherry-flower2.PNG';
+      }
       document.body.appendChild(balloon);
       setTimeout(() => balloon.remove(), 16000);
 
     }
 
-    setInterval(createBalloon, 300);
+    setInterval(createBalloon, 600);
   </script>
 </body>
 </html>
